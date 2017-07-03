@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     dirModel = new QFileSystemModel(this);
 
     //set filter
-    dirModel->setFilter(QDir::NoDotAndDotDot|QDir::AllDirs);
+    //dirModel->setFilter(QDir::NoDotAndDotDot|QDir::AllDirs);
 
     // QFIleSystemModel requires root path
     dirModel->setRootPath(mPath);
@@ -22,16 +23,16 @@ MainWindow::MainWindow(QWidget *parent) :
 
     //FILES
 
-    fileModel = new QFileSystemModel(this);
+    //fileModel = new QFileSystemModel(this);
 
     //set filter
-    fileModel->setFilter(QDir::NoDotAndDotDot|QDir::AllDirs);
+    //fileModel->setFilter(QDir::NoDotAndDotDot|QDir::);
 
     //QFileSystemModel requires root path
-    fileModel->setRootPath(mPath);
-
+    //fileModel->setRootPath(mPath);
+//
     //Attach the model to the view
-    ui->listView->setModel(fileModel);
+    //ui->listView->setModel(fileModel);
 
 }
 
@@ -48,5 +49,6 @@ void MainWindow::on_treeView_clicked(const QModelIndex &index)
 
     // Get the full path of the item that's user clicked
     QString mPath = dirModel->fileInfo(index).absoluteFilePath();
-    ui->listView->setRootIndex(fileModel->setRootPath(mPath));
+    std::cout<<mPath.toStdString()<<std::endl;
+    //ui->listView->setRootIndex(fileModel->setRootPath(mPath));
 }

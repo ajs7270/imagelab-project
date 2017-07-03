@@ -132,9 +132,6 @@
        <item>
         <widget class="QTreeView" name="treeView"/>
        </item>
-       <item>
-        <widget class="QListWidget" name="listView"/>
-       </item>
       </layout>
      </item>
     </layout>
