@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include <iostream>
 
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -9,30 +10,46 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     //creates our new model and populate
-    QString mPath = "C:/";
+    mPath = "C:/";
     dirModel = new QFileSystemModel(this);
 
     //set filter
-    //dirModel->setFilter(QDir::NoDotAndDotDot|QDir::AllDirs);
+    //dirModel = new RootFileSysProxyModel(new QFileSystemModel, "/", this);
+
+    dirModel->setFilter(QDir::NoDotAndDotDot|QDir::AllEntries);
 
     // QFIleSystemModel requires root path
     dirModel->setRootPath(mPath);
 
     //Attach the model to the view
+    QStringList filters;
+ //  filters << "*.jpg";
+
+ //   dirModel->setNameFilters(filters);
+ //   dirModel->setNameFilterDisables(false);
+
     ui->treeView->setModel(dirModel);
+
+
+
 
     //FILES
 
     //fileModel = new QFileSystemModel(this);
 
+
     //set filter
-    //fileModel->setFilter(QDir::NoDotAndDotDot|QDir::);
+   // fileModel->setFilter(QDir::NoDotAndDotDot|QDir::Files);
+
 
     //QFileSystemModel requires root path
     //fileModel->setRootPath(mPath);
-//
+
+
     //Attach the model to the view
-    //ui->listView->setModel(fileModel);
+
+
+   // ui->listView->setModel(fileModel);
 
 }
 
@@ -41,14 +58,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+
+
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    std::cout<< mPath.toStdString()<<std::endl;
+}
+
 void MainWindow::on_treeView_clicked(const QModelIndex &index)
 {
-    // TreeView clicked
-    // 1. We need to extract path
-    // 2. Set that path into our ListView
-
-    // Get the full path of the item that's user clicked
-    QString mPath = dirModel->fileInfo(index).absoluteFilePath();
-    std::cout<<mPath.toStdString()<<std::endl;
-    //ui->listView->setRootIndex(fileModel->setRootPath(mPath));
+    mPath = dirModel->fileInfo(index).absoluteFilePath();
 }

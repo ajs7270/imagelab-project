@@ -111,7 +111,7 @@
      <item row="0" column="0">
       <widget class="QPushButton" name="pushButton_4">
        <property name="text">
-        <string>PushButton</string>
+        <string>열 기</string>
        </property>
       </widget>
      </item>
@@ -120,15 +120,15 @@
    <widget class="QWidget" name="gridLayoutWidget_4">
     <property name="geometry">
      <rect>
-      <x>9</x>
-      <y>39</y>
+      <x>10</x>
+      <y>50</y>
       <width>461</width>
-      <height>621</height>
+      <height>611</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout_4">
-     <item row="0" column="0">
-      <layout class="QVBoxLayout" name="QFileSystemModelDialog">
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QTreeView" name="treeView"/>
        </item>
