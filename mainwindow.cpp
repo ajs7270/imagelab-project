@@ -14,42 +14,26 @@ MainWindow::MainWindow(QWidget *parent) :
     dirModel = new QFileSystemModel(this);
 
     //set filter
-    //dirModel = new RootFileSysProxyModel(new QFileSystemModel, "/", this);
+
 
     dirModel->setFilter(QDir::NoDotAndDotDot|QDir::AllEntries);
 
     // QFIleSystemModel requires root path
     dirModel->setRootPath(mPath);
 
-    //Attach the model to the view
+    //filter the directory to show image files
     QStringList filters;
- //  filters << "*.jpg";
+    filters << "*.png";
 
- //   dirModel->setNameFilters(filters);
- //   dirModel->setNameFilterDisables(false);
+    dirModel->setNameFilters(filters);
+    dirModel->setNameFilterDisables(false);
 
     ui->treeView->setModel(dirModel);
 
 
 
 
-    //FILES
 
-    //fileModel = new QFileSystemModel(this);
-
-
-    //set filter
-   // fileModel->setFilter(QDir::NoDotAndDotDot|QDir::Files);
-
-
-    //QFileSystemModel requires root path
-    //fileModel->setRootPath(mPath);
-
-
-    //Attach the model to the view
-
-
-   // ui->listView->setModel(fileModel);
 
 }
 
