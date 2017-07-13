@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include <QLabel>
+#include <QGridLayout>
+#include <QGraphicsPixmapItem>
 
 using std::string;
 
@@ -14,7 +16,29 @@ MainWindow::MainWindow(QWidget *parent) :
 
 
     string filePath = "";
+
+
     ui->setupUi(this);
+
+
+
+
+
+
+    scene = new QGraphicsScene(this);
+    scene2 = new QGraphicsScene(this);
+    ui->graphicsView->setScene(scene);
+    ui->graphicsView_2->setScene(scene2);
+    defaultImage = new QGraphicsPixmapItem();
+    contourImage = new QGraphicsPixmapItem();
+    scene->addItem(defaultImage);
+    scene2->addItem(contourImage);
+
+    //create graphic image procceing
+
+
+ //   scene.addItem(&item);
+  //      view.show();
 
     //creates our new model and populate
     mPath = "C:/";
@@ -58,8 +82,15 @@ void MainWindow::on_pushButton_4_clicked()
     std::cout<< mPath.toStdString()<<std::endl;
     string filePath = mPath.toStdString();
 
+    //image open on label
     QPixmap pix = QPixmap(filePath.c_str());
     ui->label->setPixmap(pix);
+
+    //iamge open on grapicView
+    defaultImage->setPixmap(pix);
+    contourImage->setPixmap(pix);
+   // contourImage->moveBy(pix.width(),0);
+
 }
 
 void MainWindow::on_treeView_clicked(const QModelIndex &index)
