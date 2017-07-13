@@ -5,6 +5,7 @@
 #include <QFileSystemModel>
 #include <QSortFilterProxyModel>
 #include <QtOpenGL/QtOpenGL>
+#include <QGraphicsScene>
 
 namespace Ui {
 class MainWindow;
@@ -32,8 +33,11 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *dirModel;
-    QFileSystemModel *fileModel;
     QSortFilterProxyModel *proxy_model;
+    QGraphicsScene *scene;
+    QGraphicsScene *scene2;
+    QGraphicsPixmapItem *defaultImage;
+    QGraphicsPixmapItem *contourImage;
 };
 
 #endif // MAINWINDOW_H
