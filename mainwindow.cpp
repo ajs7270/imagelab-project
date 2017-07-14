@@ -1,9 +1,11 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <iostream>
 #include <string>
 #include <QGridLayout>
+#include "pixmapitem.h"
 #include <QGraphicsPixmapItem>
+#include "CImg.h"
+#include <QDebug>
 
 using std::string;
 
@@ -16,14 +18,15 @@ MainWindow::MainWindow(QWidget *parent) :
     string filePath = "";
 
     //ready to open image
-    scene = new QGraphicsScene(this);
-    scene2 = new QGraphicsScene(this);
-    ui->graphicsView->setScene(scene);
-    ui->graphicsView_2->setScene(scene2);
-    defaultImage = new QGraphicsPixmapItem();
-    contourImage = new QGraphicsPixmapItem();
-    scene->addItem(defaultImage);
-    scene2->addItem(contourImage);
+    defaultScene = new QGraphicsScene(this);
+    contourScene = new QGraphicsScene(this);
+    ui->defaultGraphicsView->setScene(defaultScene);
+    ui->contourGraphicsView->setScene(contourScene);
+    defaultImage = new PixmapItem();
+    contourImage = new  QGraphicsPixmapItem();
+    defaultScene->addItem(defaultImage);
+    contourScene->addItem(contourImage);
+
 
 
     //creates our new model and populate
@@ -72,7 +75,7 @@ void MainWindow::on_label_clicked(QMouseEvent* event)
 
 void MainWindow::on_openButton_clicked()
 {
-    std::cout<< mPath.toStdString()<<std::endl;
+    qDebug(mPath.toStdString().c_str());
     string filePath = mPath.toStdString();
     QPixmap pix = QPixmap(filePath.c_str());
 
@@ -86,5 +89,17 @@ void MainWindow::on_openButton_clicked()
     */
 }
 
+void MainWindow::on_enlargementButton_clicked()
+{
 
+}
 
+void MainWindow::on_reductionButton_clicked()
+{
+
+}
+
+void MainWindow::on_reSegmentButton_clicked()
+{
+
+}

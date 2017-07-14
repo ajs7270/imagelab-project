@@ -25,8 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    view.cpp \
+    pixmapitem.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    CImg.h \
+    view.h \
+    pixmapitem.h
 
 FORMS    += mainwindow.ui
