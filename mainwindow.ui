@@ -24,13 +24,6 @@
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout_3">
-     <item row="0" column="3">
-      <widget class="QPushButton" name="reSegmentButton">
-       <property name="text">
-        <string>재선택</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="0">
       <widget class="QPushButton" name="openButton">
        <property name="text">

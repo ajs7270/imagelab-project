@@ -1,11 +1,12 @@
 #ifndef VIEW_H
 #define VIEW_H
+#include <QGraphicsScene>
 
-
-class View
+class View : public QGraphicsScene
 {
 public:
-    View();
+    View(QObject *parent = Q_NULLPTR);
+
 };
 
 #endif // VIEW_H

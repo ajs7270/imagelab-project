@@ -1,6 +1,6 @@
 #include "view.h"
 
-View::View()
+View::View(QObject *parent)
 {
 
 }
