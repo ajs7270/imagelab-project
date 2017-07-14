@@ -4,7 +4,6 @@
 #include <QGridLayout>
 #include "pixmapitem.h"
 #include <QGraphicsPixmapItem>
-#include "CImg.h"
 #include <QDebug>
 
 using std::string;
@@ -75,7 +74,6 @@ void MainWindow::on_label_clicked(QMouseEvent* event)
 
 void MainWindow::on_openButton_clicked()
 {
-    qDebug(mPath.toStdString().c_str());
     string filePath = mPath.toStdString();
     QPixmap pix = QPixmap(filePath.c_str());
 
