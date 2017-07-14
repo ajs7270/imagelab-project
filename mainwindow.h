@@ -22,13 +22,9 @@ public:
 
 private slots:
 
-
-
-    void on_pushButton_4_clicked();
-
-    void on_treeView_clicked(const QModelIndex &index);
-
-    void on_label_clicked(QMouseEvent*);
+    void on_treeView_clicked(const QModelIndex &index); 
+    void on_openButton_clicked();
+    //void on_label_clicked(QMouseEvent*);
 
 private:
     Ui::MainWindow *ui;

@@ -1,9 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "clickablelabel.h"
 #include <iostream>
 #include <string>
-#include <QLabel>
 #include <QGridLayout>
 #include <QGraphicsPixmapItem>
 
@@ -14,17 +12,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
 
-
+    ui->setupUi(this);
     string filePath = "";
 
-
-    ui->setupUi(this);
-
-
-
-
-
-
+    //ready to open image
     scene = new QGraphicsScene(this);
     scene2 = new QGraphicsScene(this);
     ui->graphicsView->setScene(scene);
@@ -34,36 +25,25 @@ MainWindow::MainWindow(QWidget *parent) :
     scene->addItem(defaultImage);
     scene2->addItem(contourImage);
 
-    //create graphic image procceing
-
-
- //   scene.addItem(&item);
-  //      view.show();
 
     //creates our new model and populate
     mPath = "C:/";
     dirModel = new QFileSystemModel(this);
-
-    //set filter
-
-
-    dirModel->setFilter(QDir::NoDotAndDotDot|QDir::AllEntries);
+    ui->treeView->setModel(dirModel);
 
     // QFIleSystemModel requires root path
     dirModel->setRootPath(mPath);
 
+    //set filter
+    dirModel->setFilter(QDir::NoDotAndDotDot|QDir::AllEntries);
+
+    /*
     //filter the directory to show image files
     QStringList filters;
     filters << "*.png","*.jpeg","*.jpg";
-
-   // dirModel->setNameFilters(filters);
-   // dirModel->setNameFilterDisables(false);
-
-    ui->treeView->setModel(dirModel);
-
-
-
-
+    dirModel->setNameFilters(filters);
+    dirModel->setNameFilterDisables(false);
+    */
 
 
 }
@@ -75,30 +55,36 @@ MainWindow::~MainWindow()
 
 
 
-
-
-void MainWindow::on_pushButton_4_clicked()
-{   
-    std::cout<< mPath.toStdString()<<std::endl;
-    string filePath = mPath.toStdString();
-
-    //image open on label
-    QPixmap pix = QPixmap(filePath.c_str());
-    ui->label->setPixmap(pix);
-
-    //iamge open on grapicView
-    defaultImage->setPixmap(pix);
-    contourImage->setPixmap(pix);
-   // contourImage->moveBy(pix.width(),0);
-
-}
-
 void MainWindow::on_treeView_clicked(const QModelIndex &index)
 {
+    //renew filePath
     mPath = dirModel->fileInfo(index).absoluteFilePath();
 }
 
+
+/*
 void MainWindow::on_label_clicked(QMouseEvent* event)
 {
     std::cout << "label clicked!" << event->x() << ", " << event->y() << std::endl;
 }
+*/
+
+
+void MainWindow::on_openButton_clicked()
+{
+    std::cout<< mPath.toStdString()<<std::endl;
+    string filePath = mPath.toStdString();
+    QPixmap pix = QPixmap(filePath.c_str());
+
+    //iamge open on grapicView
+    defaultImage->setPixmap(pix);
+    contourImage->setPixmap(pix);
+
+    /*
+    //image open on label
+    ui->label->setPixmap(pix);
+    */
+}
+
+
+
