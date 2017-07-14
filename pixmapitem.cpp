@@ -1,5 +1,7 @@
 #include "pixmapitem.h"
+#include "CImg.h"
 #include <iostream>
+#include "contour_cimg.cpp"
 PixmapItem::PixmapItem(QGraphicsPixmapItem *parent)
     : QGraphicsPixmapItem(parent)
 { 

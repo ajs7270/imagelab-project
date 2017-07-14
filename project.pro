@@ -27,7 +27,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     view.cpp \
-    pixmapitem.cpp
+    pixmapitem.cpp \
+    contour_cimg.cpp
 
 HEADERS  += mainwindow.h \
     CImg.h \
