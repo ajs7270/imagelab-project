@@ -84,10 +84,10 @@
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QGraphicsView" name="graphicsView"/>
+      <widget class="QGraphicsView" name="defaultGraphicsView"/>
      </item>
      <item>
-      <widget class="QGraphicsView" name="graphicsView_2"/>
+      <widget class="QGraphicsView" name="contourGraphicsView"/>
      </item>
     </layout>
    </widget>
