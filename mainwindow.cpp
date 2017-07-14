@@ -98,8 +98,3 @@ void MainWindow::on_reductionButton_clicked()
 {
 
 }
-
-void MainWindow::on_reSegmentButton_clicked()
-{
-
-}

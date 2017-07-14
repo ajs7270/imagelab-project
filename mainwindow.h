@@ -26,10 +26,8 @@ private slots:
 
     void on_treeView_clicked(const QModelIndex &index); 
     void on_openButton_clicked();
-    //void on_label_clicked(QMouseEvent*);
     void on_enlargementButton_clicked();
     void on_reductionButton_clicked();
-    void on_reSegmentButton_clicked();
 
 private:
     Ui::MainWindow *ui;
