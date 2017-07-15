@@ -36,3 +36,5 @@ HEADERS  += mainwindow.h \
     pixmapitem.h
 
 FORMS    += mainwindow.ui
+
+LIBS += /usr/lib/x86_64-linux-gnu/libX11.so

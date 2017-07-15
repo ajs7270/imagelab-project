@@ -3,7 +3,8 @@
 #include <vector>
 #include <list>
 
-#include "../../CImg/CImg.h"
+#include "CImg.h"
+
 
 #define T( U, r, c, d, nRow, nCol ) U[ (r) + (c) * nRow + (d) * nRow * nCol ]
 
@@ -59,11 +60,6 @@ enum dir {
     null = 0
 };
 
-struct point {
-
-    double  x;
-    double  y;
-};
 
 struct cell {
 
