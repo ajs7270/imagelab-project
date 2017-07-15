@@ -2,7 +2,6 @@
 #include "ui_mainwindow.h"
 #include <string>
 #include <QGridLayout>
-#include "pixmapitem.h"
 #include <QGraphicsPixmapItem>
 #include <QDebug>
 
@@ -15,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
     string filePath = "";
+    std::vector<point> contour;
 
     //ready to open image
     defaultScene = new QGraphicsScene(this);
@@ -74,12 +74,15 @@ void MainWindow::on_label_clicked(QMouseEvent* event)
 
 void MainWindow::on_openButton_clicked()
 {
-    string filePath = mPath.toStdString();
-    QPixmap pix = QPixmap(filePath.c_str());
 
+    string filePath = mPath.toStdString();
+    defaultImage->setCImg(mPath);
+
+    QPixmap defaultPix = QPixmap(filePath.c_str());
+    QPixmap contourPix = QPixmap(filePath.c_str());
     //iamge open on grapicView
-    defaultImage->setPixmap(pix);
-    contourImage->setPixmap(pix);
+    defaultImage->setPixmap(defaultPix);
+    contourImage->setPixmap(contourPix);
 
     /*
     //image open on label

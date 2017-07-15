@@ -8,6 +8,8 @@
 #include <QGraphicsScene>
 #include "pixmapitem.h"
 #include <QGraphicsPixmapItem>
+#include <vector>
+
 
 namespace Ui {
 class MainWindow;
@@ -37,6 +39,7 @@ private:
     QGraphicsScene *contourScene;
     PixmapItem *defaultImage;
     QGraphicsPixmapItem *contourImage;
+    std::vector< point > *contour;
 };
 
 #endif // MAINWINDOW_H
