@@ -23,7 +23,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);\
     QString mPath;
     ~MainWindow();
-
+    QGraphicsScene *contourScene;
 private slots:
 
     void on_treeView_clicked(const QModelIndex &index); 
@@ -35,8 +35,7 @@ private:
     Ui::MainWindow *ui;
     QFileSystemModel *dirModel;
     QSortFilterProxyModel *proxy_model;
-    QGraphicsScene *defaultScene;
-    QGraphicsScene *contourScene;
+    QGraphicsScene *defaultScene;  
     PixmapItem *defaultImage;
     QGraphicsPixmapItem *contourImage;
     std::vector< point > *contour;

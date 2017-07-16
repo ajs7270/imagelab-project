@@ -26,6 +26,8 @@ MainWindow::MainWindow(QWidget *parent) :
     contourScene->addItem(contourImage);
     contour = &defaultImage->contour;
 
+    //share contourScence with defaultScene
+    defaultImage->setContourScene(contourScene);
 
     //creates our new model and populate
     mPath = "C:/";
