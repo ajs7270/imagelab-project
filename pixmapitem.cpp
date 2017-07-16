@@ -21,6 +21,9 @@ void PixmapItem::mousePressEvent(QGraphicsSceneMouseEvent *event){
     qDebug("mouse Press");
     cout<<"x point : " << event->pos().toPoint().x() << ",y point : " << event->pos().y() << endl;
     contourIndex = cal_isocontour(*im,(double)event->pos().toPoint().x(), (double)event->pos().toPoint().y(), contour);
+    for(int i =0;i<contour.size();i++){
+        cout << "x point : " << contour.at(i).x <<",y point : "<< contour.at(i).y<<endl;
+    }
 
     //
 }

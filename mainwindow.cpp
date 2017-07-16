@@ -4,6 +4,7 @@
 #include <QGridLayout>
 #include <QGraphicsPixmapItem>
 #include <QDebug>
+#include <iostream>
 
 using std::string;
 
@@ -14,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
     string filePath = "";
-    std::vector<point> contour;
+
 
     //ready to open image
     defaultScene = new QGraphicsScene(this);
@@ -26,7 +27,8 @@ MainWindow::MainWindow(QWidget *parent) :
     defaultScene->addItem(defaultImage);
     contourScene->addItem(contourImage);
 
-
+    //conncet contour
+    contour = &defaultImage->contour;
 
     //creates our new model and populate
     mPath = "C:/";
@@ -92,6 +94,9 @@ void MainWindow::on_openButton_clicked()
 
 void MainWindow::on_enlargementButton_clicked()
 {
+    for(int i = 0;i<contour->size();i++){
+        std::cout << contour->at(i).x << "," << contour->at(i).y<<std::endl;
+    }
 
 }
 
