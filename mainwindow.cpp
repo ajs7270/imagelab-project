@@ -14,7 +14,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->setupUi(this);
     string filePath = "";
-    std::vector<point> contour;
 
     //ready to open image
     defaultScene = new QGraphicsScene(this);
@@ -25,19 +24,24 @@ MainWindow::MainWindow(QWidget *parent) :
     contourImage = new  QGraphicsPixmapItem();
     defaultScene->addItem(defaultImage);
     contourScene->addItem(contourImage);
-
+    contour = &defaultImage->contour;
 
 
     //creates our new model and populate
     mPath = "C:/";
     dirModel = new QFileSystemModel(this);
     ui->treeView->setModel(dirModel);
+    ui->treeView->setHeaderHidden(true);
+    for(int i = 3;i>0;i--){
+        ui->treeView->hideColumn(i);
+    }
 
     // QFIleSystemModel requires root path
     dirModel->setRootPath(mPath);
 
     //set filter
     dirModel->setFilter(QDir::NoDotAndDotDot|QDir::AllEntries);
+
 
     /*
     //filter the directory to show image files
