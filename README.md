@@ -24,7 +24,7 @@ Qt download homepage https://www.qt.io/
 
  ## If Error Occurs
  ```
- sudo apt-get install libgtk2.0-dev libglade2-dev libxmu-dev
+ sudo apt-get install libgtk2.0-dev libglade2-dev libxmu-dev libgl-dev
  ```
 
  ## Operated program
