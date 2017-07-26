@@ -29,6 +29,7 @@ public:
 
     void setCImg(QString path);
     void setContourScene(QGraphicsScene *contourScene);
+    void setImage(QPixmap *image);
 
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
@@ -37,6 +38,7 @@ protected:
 private:
     int contourIndex;
     QGraphicsLineItem *line;
+    QPixmap *image;
 
 
 

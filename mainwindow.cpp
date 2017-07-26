@@ -84,11 +84,12 @@ void MainWindow::on_openButton_clicked()
     string filePath = mPath.toStdString();
     defaultImage->setCImg(mPath);
 
-    QPixmap defaultPix = QPixmap(filePath.c_str());
-    QPixmap contourPix = QPixmap(filePath.c_str());
+    defaultPix = new QPixmap(filePath.c_str());
+    contourPix = new QPixmap(filePath.c_str());
     //iamge open on grapicView
-    defaultImage->setPixmap(defaultPix);
-    contourImage->setPixmap(contourPix);
+    defaultImage->setPixmap(*defaultPix);
+    contourImage->setPixmap(*contourPix);
+    defaultImage->setImage(defaultPix);
 
     /*
     //image open on label

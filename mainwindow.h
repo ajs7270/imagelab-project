@@ -39,6 +39,8 @@ private:
     PixmapItem *defaultImage;
     QGraphicsPixmapItem *contourImage;
     std::vector< point > *contour;
+    QPixmap *defaultPix;
+    QPixmap *contourPix;
 };
 
 #endif // MAINWINDOW_H
