@@ -24,7 +24,7 @@ public:
     ~PixmapItem();
 
     std::vector< point > contour;
-    cimg_library::CImg<double> *im;
+    cimg_library::CImg<double> *im = NULL;
     QGraphicsScene *contourScene;
 
     void setCImg(QString path);

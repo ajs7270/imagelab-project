@@ -5,6 +5,7 @@
 #include <QGraphicsPixmapItem>
 #include <QDebug>
 
+
 using std::string;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -53,7 +54,6 @@ MainWindow::MainWindow(QWidget *parent) :
     dirModel->setNameFilterDisables(false);
     */
 
-
 }
 
 MainWindow::~MainWindow()
@@ -83,13 +83,25 @@ void MainWindow::on_openButton_clicked()
 
     string filePath = mPath.toStdString();
     defaultImage->setCImg(mPath);
+    QPixmap *oriDefault = NULL;
+    QPixmap *oriContour = NULL;
+
+    if(defaultPix){
+       oriDefault = defaultPix;
+       oriContour = contourPix;
+    }
 
     defaultPix = new QPixmap(filePath.c_str());
     contourPix = new QPixmap(filePath.c_str());
-    //iamge open on grapicView
+    //image open on grapicView
     defaultImage->setPixmap(*defaultPix);
     contourImage->setPixmap(*contourPix);
     defaultImage->setImage(defaultPix);
+
+    if(oriDefault){
+        delete(oriDefault);
+        delete(oriContour);
+    }
 
     /*
     //image open on label

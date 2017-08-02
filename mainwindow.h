@@ -9,7 +9,7 @@
 #include "pixmapitem.h"
 #include <QGraphicsPixmapItem>
 #include <vector>
-
+#include <QPixmap>
 
 namespace Ui {
 class MainWindow;
@@ -31,6 +31,7 @@ private slots:
     void on_enlargementButton_clicked();
     void on_reductionButton_clicked();
 
+
 private:
     Ui::MainWindow *ui;
     QFileSystemModel *dirModel;
@@ -39,8 +40,8 @@ private:
     PixmapItem *defaultImage;
     QGraphicsPixmapItem *contourImage;
     std::vector< point > *contour;
-    QPixmap *defaultPix;
-    QPixmap *contourPix;
+    QPixmap *defaultPix = NULL;
+    QPixmap *contourPix = NULL;
 };
 
 #endif // MAINWINDOW_H
