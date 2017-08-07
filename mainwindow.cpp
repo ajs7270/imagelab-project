@@ -5,6 +5,8 @@
 #include <QGraphicsPixmapItem>
 #include <QDebug>
 #include <iostream>
+
+
 using std::string;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -67,19 +69,18 @@ void MainWindow::on_treeView_clicked(const QModelIndex &index)
 {
     //renew filePath
     mPath = dirModel->fileInfo(index).absoluteFilePath();
+
+
 }
 
 
-/*
-void MainWindow::on_label_clicked(QMouseEvent* event)
-{
-    std::cout << "label clicked!" << event->x() << ", " << event->y() << std::endl;
-}
-*/
 
 
 void MainWindow::on_openButton_clicked()
 {
+
+
+
 
 
     string filePath = mPath.toStdString();
@@ -91,19 +92,21 @@ void MainWindow::on_openButton_clicked()
     contourScene->clear();
     contourScene->addPixmap(*defaultPix);
     defaultImage->setImage(defaultPix);
-    
-    /*
-    //image open on label
-    ui->label->setPixmap(pix);
-    */
+
+
+
+
 }
 
 void MainWindow::on_enlargementButton_clicked()
 {
+   defaultImage->setScale(1.25 * defaultImage->scale());
+   contourImage->setScale(defaultImage->scale());
 
 }
 
 void MainWindow::on_reductionButton_clicked()
 {
-
+defaultImage->setScale(0.8 * defaultImage->scale());
+contourImage->setScale(defaultImage->scale());
 }
