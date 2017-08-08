@@ -9,6 +9,7 @@
 #include "pixmapitem.h"
 #include <QGraphicsPixmapItem>
 #include <vector>
+#include <QtCore>
 
 
 namespace Ui {

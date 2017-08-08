@@ -5,6 +5,9 @@
 #include <QGraphicsPixmapItem>
 #include <QDebug>
 #include <iostream>
+#include <stdio.h>
+
+
 using std::string;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -67,43 +70,50 @@ void MainWindow::on_treeView_clicked(const QModelIndex &index)
 {
     //renew filePath
     mPath = dirModel->fileInfo(index).absoluteFilePath();
+
+
 }
 
 
-/*
-void MainWindow::on_label_clicked(QMouseEvent* event)
-{
-    std::cout << "label clicked!" << event->x() << ", " << event->y() << std::endl;
-}
-*/
 
 
 void MainWindow::on_openButton_clicked()
 {
 
-
     string filePath = mPath.toStdString();
-    defaultImage->setCImg(mPath);
+    string type;
 
-    defaultPix = new QPixmap(filePath.c_str());
-    //image open on grapicView
-    defaultImage->setPixmap(*defaultPix);
-    contourScene->clear();
-    contourScene->addPixmap(*defaultPix);
-    defaultImage->setImage(defaultPix);
-    
-    /*
-    //image open on label
-    ui->label->setPixmap(pix);
-    */
+
+    if(filePath.length() > 3){
+        type = filePath.substr(filePath.length() - 3, filePath.length()-1);
+    }
+
+
+        if(type.find("png") != std::string::npos || type.find("jpeg") != std::string::npos || type.find("jpg") != std::string::npos || type.find("dcm") != std::string::npos){
+            defaultImage->setCImg(mPath);
+
+            defaultPix = new QPixmap(filePath.c_str());
+            //image open on grapicView
+            defaultImage->setPixmap(*defaultPix);
+            contourScene->clear();
+            contourScene->addPixmap(*defaultPix);
+            defaultImage->setImage(defaultPix);
+        }else{
+
+        }
+
+
 }
 
 void MainWindow::on_enlargementButton_clicked()
 {
+   defaultImage->setScale(1.25 * defaultImage->scale());
+   contourImage->setScale(defaultImage->scale());
 
 }
 
 void MainWindow::on_reductionButton_clicked()
 {
-
+defaultImage->setScale(0.8 * defaultImage->scale());
+contourImage->setScale(defaultImage->scale());
 }
