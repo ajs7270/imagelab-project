@@ -5,6 +5,7 @@
 #include <QGraphicsPixmapItem>
 #include <QDebug>
 #include <iostream>
+#include <stdio.h>
 
 
 using std::string;
@@ -79,21 +80,27 @@ void MainWindow::on_treeView_clicked(const QModelIndex &index)
 void MainWindow::on_openButton_clicked()
 {
 
-
-
-
-
     string filePath = mPath.toStdString();
-    defaultImage->setCImg(mPath);
-
-    defaultPix = new QPixmap(filePath.c_str());
-    //image open on grapicView
-    defaultImage->setPixmap(*defaultPix);
-    contourScene->clear();
-    contourScene->addPixmap(*defaultPix);
-    defaultImage->setImage(defaultPix);
+    string type;
 
 
+    if(filePath.length() > 3){
+        type = filePath.substr(filePath.length() - 3, filePath.length()-1);
+    }
+
+
+        if(type.find("png") != std::string::npos || type.find("jpeg") != std::string::npos || type.find("jpg") != std::string::npos || type.find("dcm") != std::string::npos){
+            defaultImage->setCImg(mPath);
+
+            defaultPix = new QPixmap(filePath.c_str());
+            //image open on grapicView
+            defaultImage->setPixmap(*defaultPix);
+            contourScene->clear();
+            contourScene->addPixmap(*defaultPix);
+            defaultImage->setImage(defaultPix);
+        }else{
+
+        }
 
 
 }
