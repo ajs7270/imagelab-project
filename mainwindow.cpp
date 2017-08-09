@@ -92,6 +92,7 @@ void MainWindow::on_openButton_clicked()
         if(type.find("png") != std::string::npos || type.find("jpeg") != std::string::npos || type.find("jpg") != std::string::npos || type.find("dcm") != std::string::npos){
             defaultImage->setCImg(mPath);
 
+            defaultImage->setScale(1);
             defaultPix = new QPixmap(filePath.c_str());
             //image open on grapicView
             defaultImage->setPixmap(*defaultPix);
@@ -108,12 +109,9 @@ void MainWindow::on_openButton_clicked()
 void MainWindow::on_enlargementButton_clicked()
 {
    defaultImage->setScale(1.25 * defaultImage->scale());
-   contourImage->setScale(defaultImage->scale());
-
 }
 
 void MainWindow::on_reductionButton_clicked()
 {
-defaultImage->setScale(0.8 * defaultImage->scale());
-contourImage->setScale(defaultImage->scale());
+    defaultImage->setScale(0.8 * defaultImage->scale());
 }
