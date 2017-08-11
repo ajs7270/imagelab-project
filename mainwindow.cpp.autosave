@@ -70,8 +70,6 @@ void MainWindow::on_treeView_clicked(const QModelIndex &index)
 {
     //renew filePath
     mPath = dirModel->fileInfo(index).absoluteFilePath();
-
-
 }
 
 
