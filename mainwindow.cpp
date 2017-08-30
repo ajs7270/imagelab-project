@@ -62,6 +62,11 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete defaultScene;
+    delete contourScene;
+    delete defaultImage;
+    delete contourImage;
+    delete dirModel;
 }
 
 
